@@ -1,0 +1,45 @@
+spring:
+  mongodb:
+    embedded:
+      version: 3.6.5
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: test
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    default-property-inclusion: non_null
+  redis:
+    host: localhost
+    port: 1234
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: test
+    password: test
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    signUpLink: signUp.com
+    changePasswordLink: changePassword.com
+auth:
+  jwt:
+    accessExp: 1000
+    refreshExp: 2000
+    secret: asdf
+cloud:
+  aws:
+    s3:
+      bucket: test
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+    credentials:
+      instanceProfile: true
+      accessKey: access
+      secretKey: secret

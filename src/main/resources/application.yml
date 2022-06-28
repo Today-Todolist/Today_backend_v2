@@ -1,0 +1,41 @@
+spring:
+  data:
+    mongodb:
+      uri: ${MONGO_URL}
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    default-property-inclusion: non_null
+  redis:
+    host: ${REDIS_HOST}
+    port: ${REDIS_PORT}
+    password: ${REDIS_PASSWORD}
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_ADDRESS}
+    password: ${EMAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+    signUpLink: ${SIGN_UP_LINK}
+    changePasswordLink: ${CHANGE_PASSWORD_LINK}
+auth:
+  jwt:
+    accessExp: ${JWT_EXP_ACCESS}
+    refreshExp: ${JWT_EXP_REFRESH}
+    secret: ${JWT_SECRET_KEY}
+cloud:
+  aws:
+    s3:
+      bucket: ${AWS_BUCKET}
+    region:
+      static: ${AWS_REGION}
+    stack:
+      auto: false
+    credentials:
+      instanceProfile: true
+      accessKey: ${AWS_ACCESS}
+      secretKey: ${AWS_SECRET}
