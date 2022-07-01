@@ -21,7 +21,6 @@ plugins {
     jacoco
     groovy
     kotlin("kapt") version "1.6.20"
-    kotlin("plugin.noarg") version "1.6.21"
 }
 
 group = "today"
@@ -57,12 +56,6 @@ dependencies {
     // jwt
     implementation ("io.jsonwebtoken:jjwt:0.9.1")
 
-    // querydsl
-    implementation ("com.querydsl:querydsl-jpa:5.0.0")
-    annotationProcessor(
-        "javax.persistence:javax.persistence-api",
-        "javax.annotation:javax.annotation-api")
-
     // kotlin
     implementation ("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation ("org.jetbrains.kotlin:kotlin-reflect")
@@ -94,16 +87,6 @@ tasks.withType<KotlinCompile> {
         freeCompilerArgs = listOf("-Xjsr305=strict")
         jvmTarget = "17"
     }
-}
-
-noArg {
-    annotation("javax.persistence.Entity")
-    annotation("javax.persistence.MappedSuperclass")
-}
-
-allOpen {
-    annotation("javax.persistence.Entity")
-    annotation("javax.persistence.MappedSuperclass")
 }
 
 sonarqube {
