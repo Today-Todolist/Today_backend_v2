@@ -1,20 +1,21 @@
 package today.todolist.domain.user.domain
 
 import org.springframework.data.annotation.Id
-import org.springframework.data.mongodb.core.index.Indexed
 import org.springframework.data.redis.core.RedisHash
+import org.springframework.data.redis.core.index.Indexed
+import java.util.concurrent.atomic.AtomicInteger
 
 @RedisHash(timeToLive = 300)
 class ChangePasswordCertify (
-    @field:Indexed val email: String,
+    @Indexed val email: String,
     val password: String
 ) {
     @Id
-    var id: Long = getId()
+    var id: Int = getId()
         private set
 
     companion object {
-        private var id: Long = 0
-        private fun getId(): Long = id++
+        private var count: AtomicInteger = AtomicInteger()
+        private fun getId(): Int = count.incrementAndGet()
     }
 }
