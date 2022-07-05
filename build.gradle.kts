@@ -1,14 +1,19 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-val testExclusionList = arrayOf("**Application.**",
+val testExclusionList = arrayOf(
+    "**Application.**",
+
     "**/domain/*/domain/**",
     "**/domain/*/dto/**",
     "**/domain/*/exception/**",
+
     "**/global/config/**",
     "**/global/domain/**",
     "**/global/dto/**",
-    "**/global/error/**",
+    "**/global/error/dto/**",
+    "**/global/error/exception/**",
     "**/global/security/**",
+
     "**/infra/file/**",
     "**/infra/mail/**")
 
