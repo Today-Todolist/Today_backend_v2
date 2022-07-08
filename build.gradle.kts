@@ -12,6 +12,7 @@ val testExclusionList = arrayOf(
     "**/global/dto/**",
     "**/global/error/dto/**",
     "**/global/error/exception/**",
+    "**/global/security/ErrorCode",
     "**/global/security/**",
 
     "**/infra/file/**",

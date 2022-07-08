@@ -3,6 +3,7 @@ package today.todolist.global.error
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.http.converter.HttpMessageNotReadableException
+import org.springframework.security.access.AccessDeniedException
 import org.springframework.web.HttpMediaTypeNotSupportedException
 import org.springframework.web.HttpRequestMethodNotSupportedException
 import org.springframework.web.bind.MethodArgumentNotValidException
@@ -28,7 +29,7 @@ class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(AccessDeniedException::class)
-    fun handleAccessDeniedException(e: AccessDeniedException?): ResponseEntity<BasicErrorResponse> {
+    fun handleAccessDeniedException(e: AccessDeniedException): ResponseEntity<BasicErrorResponse> {
         val response = BasicErrorResponse(UNAUTHORIZED_REQUEST)
         return ResponseEntity<BasicErrorResponse>(response, HttpStatus.valueOf(response.status))
     }
@@ -51,7 +52,7 @@ class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(MissingServletRequestParameterException::class)
-    fun handleException(e: MissingServletRequestParameterException): ResponseEntity<SimpleErrorResponse> {
+    fun handleMissingServletRequestParameterException(e: MissingServletRequestParameterException): ResponseEntity<SimpleErrorResponse> {
         val response = SimpleErrorResponse(MISSING_REQUEST, e.message)
         return ResponseEntity<SimpleErrorResponse>(response, HttpStatus.valueOf(response.status))
     }
