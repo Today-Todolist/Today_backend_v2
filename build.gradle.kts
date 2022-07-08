@@ -26,7 +26,6 @@ plugins {
     id ("org.sonarqube") version "3.3"
     jacoco
     groovy
-    kotlin("kapt") version "1.6.20"
 }
 
 group = "today"
@@ -68,13 +67,16 @@ dependencies {
     implementation ("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 
     // configure
-    kapt("org.springframework.boot:spring-boot-configuration-processor")
+    annotationProcessor ("org.springframework.boot:spring-boot-configuration-processor")
 
     // aws
     implementation ("org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE")
 
     // mail
     implementation ("org.springframework.boot:spring-boot-starter-mail")
+
+    // log
+    implementation("io.github.microutils:kotlin-logging:2.1.21")
 
     // test - etc
     testImplementation ("org.springframework.boot:spring-boot-starter-test")
