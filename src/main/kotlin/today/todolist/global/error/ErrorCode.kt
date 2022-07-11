@@ -6,8 +6,6 @@ enum class ErrorCode (
     val message: String
 ) {
     INTERNAL_SERVER_ERROR(500, "S001", "Internal Server Error"),
-    CREATE_RANDOM_IMAGE_FAILED(500, "S002", "Create Random Image Failed"),
-    FILE_DELETE_FAILED(500, "S003", "Local File Delete Failed"),
 
     INVALID_TOKEN(401, "A001", "Invalid Token"),
     UNAUTHORIZED_REQUEST(401, "A002", "Unauthorized Request"),
@@ -16,7 +14,6 @@ enum class ErrorCode (
     MISSING_REQUEST(400, "C002", "Missing Request"),
     WRONG_JSON_FORMAT(415, "C003", "Wrong Json Format"),
     WRONG_HTTP_METHOD(405, "C004", "Wrong Http Method"),
-    FILE_SAVE_FAILED(400, "C005", "File Save Failed"),
     WRONG_IMAGE_EXTENSION(400, "C006", "Wrong Image Extension"),
     WRONG_IMAGE_CONTENT_TYPE(400, "C007", "Wrong Image Content Type"),
     MAIL_SEND_FAILED(400, "C008", "Mail Send Failed"),
