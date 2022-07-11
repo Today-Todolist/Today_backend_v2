@@ -33,7 +33,7 @@ repositories {
 }
 
 kotlin.sourceSets.test {
-    kotlin.srcDir("src/test/groovy")
+    kotlin.srcDir("src/test/kotlin")
 }
 
 dependencies {
@@ -80,10 +80,9 @@ dependencies {
     // test - etc
     testImplementation ("org.springframework.boot:spring-boot-starter-test")
 
-    // test - spock
-    testImplementation ("org.spockframework:spock-core:2.1-groovy-3.0")
-    testImplementation ("org.spockframework:spock-spring:2.1-groovy-3.0")
-    testRuntimeOnly ("org.codehaus.groovy:groovy:3.0.10")
+    // test - kotest
+    testImplementation("io.kotest:kotest-runner-junit5:5.3.2")
+    testImplementation("io.kotest:kotest-assertions-core:5.3.2")
 
     // test - embedded mongodb
     testImplementation ("de.flapdoodle.embed:de.flapdoodle.embed.mongo:3.4.6")
