@@ -59,8 +59,7 @@ class GlobalExceptionHandler {
 
     @ExceptionHandler(HttpMediaTypeNotSupportedException::class)
     fun handleHttpMediaTypeNotSupportedException(e: HttpMediaTypeNotSupportedException): ResponseEntity<SimpleErrorResponse> {
-        val reason = "The content type must be application/json. But request content type is " + e.contentType
-        val response = SimpleErrorResponse(NOT_IN_JSON_FORMAT, reason)
+        val response = SimpleErrorResponse(NOT_IN_JSON_FORMAT, e.message!!)
         return ResponseEntity<SimpleErrorResponse>(response, HttpStatus.valueOf(response.status))
     }
 
