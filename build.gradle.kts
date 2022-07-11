@@ -12,7 +12,7 @@ val testExclusionList = arrayOf(
     "**/global/dto/**",
     "**/global/error/dto/**",
     "**/global/error/exception/**",
-    "**/global/security/ErrorCode",
+    "**/global/security/ErrorCode.**",
     "**/global/security/***Config***",
 
     "**/infra/file/**",
@@ -76,14 +76,17 @@ dependencies {
     implementation ("org.springframework.boot:spring-boot-starter-mail")
 
     // log
-    implementation("io.github.microutils:kotlin-logging:2.1.21")
+    implementation ("io.github.microutils:kotlin-logging:2.1.21")
 
     // test - etc
     testImplementation ("org.springframework.boot:spring-boot-starter-test")
 
     // test - kotest
-    testImplementation("io.kotest:kotest-runner-junit5:5.3.2")
-    testImplementation("io.kotest:kotest-assertions-core:5.3.2")
+    testImplementation ("io.kotest:kotest-runner-junit5:5.3.2")
+    testImplementation ("io.kotest:kotest-assertions-core:5.3.2")
+
+    // test = mockk
+    testImplementation ("io.mockk:mockk:1.11.0")
 
     // test - embedded mongodb
     testImplementation ("de.flapdoodle.embed:de.flapdoodle.embed.mongo:3.4.6")
@@ -112,7 +115,6 @@ tasks.jacocoTestReport {
     }
 
     executionData(files(testExclusionList.toMutableList()))
-
     finalizedBy(tasks.jacocoTestCoverageVerification)
 }
 
